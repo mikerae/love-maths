@@ -40,8 +40,10 @@ function runGame(gameType) {
     displayMultiplyQuestion(num1, num2);
   } else if (gameType === "subtract") {
     displaySubtractQuestion(num1, num2);
-} else {
-    alert(`Unknow game type: ${gameType}`)
+  }  else if (gameType === "division") {
+    displayDivisionQuestion(num1, num2);
+  } else {
+    alert(`Unknow game type: ${gameType}`);
     throw `Unknown game type: ${gameType}. Aborting!`;
   }
 
@@ -83,9 +85,11 @@ function calculateCorrectAnswer() {
     return [operand1 * operand2, "multiply"];
   } else if (operator === "-") {
     return [operand1 - operand2, "subtract"];
+  } else if (operator === "/") {
+    return [operand1 / operand2, "division"];
   } else {
       alert(`Unimplemeted operator ${operator}`);
-      throw `Unimplemented operator ${operator}. Aorting!`;
+      throw `Unimplemented operator ${operator}. Aborting!`;
   }
 }
 
@@ -129,9 +133,28 @@ function displaySubtractQuestion(operand1, operand2) {
 function displayMultiplyQuestion(operand1, operand2) {
 
   document.getElementById('operand1').textContent = operand1;
-  console.log(operand1);
-  console.log(document.getElementById('operand1').textContent);
   document.getElementById('operand2').textContent = operand2;
   document.getElementById('operator').textContent = "x";
+
+}
+/**
+ * Displays numbers to be divided, but first ensures that the first number is larger than the second: if not it swaps them;
+ * It also ensures that the result is an integer: if not the first number becomes a product of both numbers.
+ */
+function displayDivisionQuestion(operand1, operand2) {
+
+  if (operand1 < operand2) {
+    let swap = operand1;
+    operand1 = operand2;
+    operand2 = swap;
+  } 
+
+  if ((operand1 % operand2) !== 0) {
+    operand1 = operand1 * operand2;
+  }
+
+  document.getElementById('operand1').textContent = operand1;
+  document.getElementById('operand2').textContent = operand2;
+  document.getElementById('operator').textContent = "/";
 
 }
