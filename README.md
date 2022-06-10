@@ -1,7 +1,7 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 # Love Maths Walkthrough
-### A Live link to the Love Maths Walkthrough Project can be found ![here:](https://mikerae.github.io/love-maths/)
+### A Live link to the Love Maths Walkthrough Project can be found [here:](https://mikerae.github.io/love-maths/)
 This code was copied by Mike Rae as part od the walk-through training module.
 
 # Starter Maths Game
